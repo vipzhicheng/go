@@ -4,14 +4,27 @@ Go
 What is Go?
 -----------
 
-This Go is not the programming language from Google. This is a shell command which can help manage multiple remote servers SSH access easily, and do not need to remember so many accounts for those servers.
+This Go is not the programming language which is created by Google. This is a shell command which can help managing multiple remote servers SSH accounts easily, so you do not need to remember so many accounts for those servers.
+
+There are so many solutions which can help do similar things. I just hope you like this simple way.
 
 OS requirements
 ---------------
 
-The command tested on MacOSX, but should be working on most linux distributions. It depends on expect on your local system, and the remote servers need to enable SSH.
+The project is just tested on MacOSX, but should work on most linux distributions. It depends on expect command and bash environment, and the remote servers need to enable sshd.
 
 If you feels something wrong, please [file an issue](https://github.com/vipzhicheng/go/issues/new) on this project, because I do not test the scripts on every case, but I am happy to help you out.
+
+Features
+--------
+
+* Multi accounts configuration in one file, easy format
+* Support comments to group accounts
+* Support multi keywords filter
+* Support select by dynamic number
+* Support different port for each ssh account
+* Support private key file
+* Support -g option to attach -D7070
 
 Usage
 -----
@@ -43,7 +56,7 @@ $ source ~/.bash_profile
 ### Set ~/.go.conf, you can see demo settings as follows.
 
 ```
-# IP USER:PASS LABEL
+# IP USER:PASS:PRIVATE_KEY_FILE LABEL
 
 192.168.1.7:22000 user1:pass1 label:7
 192.168.1.8 user2:pass2 label:8
@@ -72,17 +85,20 @@ $
 
 ### Options
 
-There is only one option, -g, with this option, you can add -D7070 to the connection.
+* -g, with this option, you can add -D7070 to the connection.
+* -h, help info, command format.
 
-### Change log
+### support multi filter words
 
-2015-06-01
-1. Ignore comments lines
-2. Add support for secret file
+This is a very neat feature, if you need to manage tens of servers.
+
+```
+$ go foo bar
+```
 
 Inspiration & Thanks
 --------------------
 
-I know it must be somewhere about the situation of manage multiple SSH accesses via expect. Then I found [this](http://imbugs.com/blog/articles/99.html), which is written in Chinese. Thanks for the code, most of this project is from that code, but some features I need are missing. so I added them into this project.
+This is a feature that I need, I know it must be somewhere which I can find out the situation of managing multiple SSH accesses via expect. Then I found [this](http://imbugs.com/blog/articles/99.html), which is written in Chinese. Thanks for the code, most of idea is from that code, then I rewrite most of the code, add some new features.
 
 
