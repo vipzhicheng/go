@@ -88,7 +88,7 @@ $
 * -g, with this option, you can add -D7070 to the connection.
 * -h, help info, command format.
 
-### support multi filter words
+### Support multi filter words
 
 This is a very neat feature, if you need to manage tens of servers.
 
